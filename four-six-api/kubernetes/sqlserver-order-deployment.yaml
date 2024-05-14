@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sqlserver-deployment
+  name: sqlserver-order-deployment
   labels:
-    app: sqlserver-deployment
+    app: sqlserver-order-deployment
 spec:
   replicas: 1
   selector:
@@ -18,7 +18,7 @@ spec:
       - name: mssql
         image: mcr.microsoft.com/mssql/server:2022-latest
         ports:
-          - containerPort: 1433
+          - containerPort: 1434
         env:
         - name: MSSQL_SA_PASSWORD
           value: 'SenhaDoBanco(123)'

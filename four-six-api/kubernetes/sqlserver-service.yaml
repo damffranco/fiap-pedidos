@@ -3,12 +3,12 @@ kind: Service
 metadata:
   labels:
     app: sqlserver
-  name: foursixsql
+  name: foursixordersql
 spec:
   selector:
     app: mssql
   ports:
-  - port: 1433
+  - port: 1434
     protocol: TCP
     targetPort: 1433
   type: LoadBalancer
