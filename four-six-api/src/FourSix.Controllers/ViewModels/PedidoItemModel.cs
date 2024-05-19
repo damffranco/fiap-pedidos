@@ -7,7 +7,7 @@ namespace FourSix.Controllers.ViewModels
         public PedidoItemModel(PedidoItem item)
         {
             PedidoId = item.PedidoId;
-            ItemPedidoId = item.ItemPedidoId;
+            ItemPedidoId = item.ProdutoId;
             ValorUnitario = item.ValorUnitario;
             Quantidade = item.Quantidade;
             Observacao = item.Observacao;

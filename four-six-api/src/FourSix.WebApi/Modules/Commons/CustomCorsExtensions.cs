@@ -1,5 +1,8 @@
-﻿namespace FourSix.WebApi.Modules.Commons
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace FourSix.WebApi.Modules.Commons
 {
+    [ExcludeFromCodeCoverage]
     public static class CustomCorsExtensions
     {
         private const string AllowsAny = "_allowsAny";

@@ -1,9 +1,11 @@
 ﻿using Microsoft.OpenApi.Models;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
 namespace FourSix.WebApi.Modules.Commons
 {
+    [ExcludeFromCodeCoverage]
     public static class SwaggerConfiguration
     {
         public static void AddSwaggerConfig(this IServiceCollection services)
@@ -17,8 +19,8 @@ namespace FourSix.WebApi.Modules.Commons
                 s.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = fvi.ProductVersion,
-                    Title = "Four Six API",
-                    Description = $"API de integração Four Six 4",
+                    Title = "Four Six Order API",
+                    Description = $"API de Integração - Four Six Orders",
                     Contact = new OpenApiContact
                     {
                         Name = "TI FourSix - Grupo 46"

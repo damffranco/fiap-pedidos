@@ -6,7 +6,7 @@ namespace FourSix.UseCases.UseCases.Pedidos.AlteraStatusPedido
     public class AlteraStatusPedidoUseCase : IAlteraStatusPedidoUseCase
     {
         private readonly IPedidoRepository _pedidoRepository;
-        private readonly IPedidoCheckoutRepository _pedidoStatusRepository;
+        private readonly IPedidoCheckoutRepository _pedidoCheckoutRepository;
         private readonly IUnitOfWork _unitOfWork;
 
         public AlteraStatusPedidoUseCase(
@@ -16,7 +16,7 @@ namespace FourSix.UseCases.UseCases.Pedidos.AlteraStatusPedido
         {
             _pedidoRepository = pedidoRepository;
             _unitOfWork = unitOfWork;
-            _pedidoStatusRepository = pedidoStatusRepository;
+            _pedidoCheckoutRepository = pedidoStatusRepository;
         }
 
         public Task<Pedido> Execute(Guid pedidoId, EnumStatusPedido statusId, DateTime dataStatus) => AlterarStatusPedido(pedidoId, statusId, dataStatus);
@@ -33,9 +33,9 @@ namespace FourSix.UseCases.UseCases.Pedidos.AlteraStatusPedido
             pedido.AlterarStatus(statusId);
             await _pedidoRepository.Alterar(pedido);
 
-            var novaSequencia = _pedidoStatusRepository.Listar(l => l.PedidoId == pedidoId).Max(l => l.Sequencia) + 1;
+            var novaSequencia = _pedidoCheckoutRepository.Listar(l => l.PedidoId == pedidoId).Max(l => l.Sequencia) + 1;
 
-            await _pedidoStatusRepository
+            await _pedidoCheckoutRepository
                  .Incluir(new PedidoCheckout(pedidoId, novaSequencia, statusId, dataStatus))
                  .ConfigureAwait(false);
 

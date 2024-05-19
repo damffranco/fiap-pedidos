@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc.Formatters;
+using System.Diagnostics.CodeAnalysis;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace FourSix.WebApi.Modules.Commons
 {
+    [ExcludeFromCodeCoverage]
     public static class CustomControllersExtensions
     {
         /// <summary>

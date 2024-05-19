@@ -1,5 +1,4 @@
-﻿using FourSix.Controllers.Presenters;
-using FourSix.Controllers.ViewModels;
+﻿using FourSix.Controllers.ViewModels;
 using FourSix.Domain.Entities.PedidoAggregate;
 using FourSix.UseCases.UseCases.Pedidos.ObtemPedidosPorStatus;
 using FourSix.WebApi.UseCases.Pedidos.ObtemPedido;
@@ -10,15 +9,11 @@ namespace FourSix.Controllers.Adapters.Pedidos.ObtemPedidosPorStatus
 {
     public class ObtemPedidosPorStatusAdapter : IObtemPedidosPorStatusAdapter
     {
-        private readonly Notification _notification;
-
         private readonly IObtemPedidosPorStatusUseCase _useCase;
 
-        public ObtemPedidosPorStatusAdapter(Notification notification,
-            IObtemPedidosPorStatusUseCase useCase)
+        public ObtemPedidosPorStatusAdapter(IObtemPedidosPorStatusUseCase useCase)
         {
             _useCase = useCase;
-            _notification = notification;
         }
 
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ObtemPedidosPorStatusResponse))]

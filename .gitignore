@@ -290,3 +290,7 @@ __pycache__/
 
 # Aulas
 four-six-api/apoio
+
+#Testes
+coveragereport
+four-six-api/tests/UnitTests/TestResults

@@ -6,20 +6,14 @@ namespace FourSix.UseCases.UseCases.Pedidos.NovoPedido
     public class NovoPedidoUseCase : INovoPedidoUseCase
     {
         private readonly IPedidoRepository _pedidoRepository;
-        private readonly IPedidoItemRepository _pedidoItemRepository;
-        private readonly IPedidoCheckoutRepository _pedidoCheckoutRepository;
         private readonly IUnitOfWork _unitOfWork;
 
         public NovoPedidoUseCase(
             IPedidoRepository pedidoRepository,
-            IUnitOfWork unitOfWork,
-            IPedidoItemRepository pedidoItemRepository,
-            IPedidoCheckoutRepository pedidoCheckoutRepository)
+            IUnitOfWork unitOfWork)
         {
             _pedidoRepository = pedidoRepository;
             _unitOfWork = unitOfWork;
-            _pedidoItemRepository = pedidoItemRepository;
-            _pedidoCheckoutRepository = pedidoCheckoutRepository;
         }
 
         public async Task<Pedido> Execute(DateTime dataPedido, Guid? clienteId, ICollection<Tuple<Guid, decimal, int, string>> itens)
@@ -31,7 +25,7 @@ namespace FourSix.UseCases.UseCases.Pedidos.NovoPedido
                 dataPedido,
                 clienteId,
                 itens.Select(i => new PedidoItem(id, i.Item1, i.Item2, i.Item3, i.Item4)).ToList(),
-                new List<PedidoCheckout> { new PedidoCheckout(id, 1, EnumStatusPedido.Recebido, DateTime.Now) }));
+                new List<PedidoCheckout> { new PedidoCheckout(id, 1, EnumStatusPedido.Criado, DateTime.Now) }));
 
             return pedido;
         }

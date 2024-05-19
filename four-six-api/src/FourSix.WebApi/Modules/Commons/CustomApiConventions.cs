@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using System.Diagnostics.CodeAnalysis;
 
 namespace FourSix.WebApi.Modules.Commons
 {
+    [ExcludeFromCodeCoverage]
     public static class CustomApiConventions
     {
         /// <summary>

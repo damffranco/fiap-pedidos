@@ -8,6 +8,7 @@ using System.Text.Json.Serialization;
 using Amazon.Extensions.CognitoAuthentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using System.Diagnostics.CodeAnalysis;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -85,3 +86,5 @@ app.AddRoutesMaps();
 app.MapControllers();
 
 app.Run();
+[ExcludeFromCodeCoverage]
+public partial class Program { }

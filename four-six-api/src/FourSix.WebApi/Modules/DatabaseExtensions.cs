@@ -1,13 +1,14 @@
 ﻿using FourSix.Controllers.Gateways.DataAccess;
 using FourSix.Controllers.Gateways.Repositories;
-using FourSix.Controllers.Gateways.Repositories.Cache;
 using FourSix.UseCases.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.CodeAnalysis;
 using System.Net.Security;
 using System.Security.Authentication;
 
 namespace FourSix.WebApi.Modules
 {
+    [ExcludeFromCodeCoverage]
     public static class DatabaseExtensions
     {
         static string envName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
@@ -53,13 +54,8 @@ namespace FourSix.WebApi.Modules
             );
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped<IClienteRepository, ClienteRepository>();
-            services.AddScoped<IProdutoRepository, ProdutoCacheRepository>();
-            services.AddScoped<ProdutoRepository>();
             services.AddScoped<IPedidoRepository, PedidoRepository>();
-            services.AddScoped<IPedidoItemRepository, PedidoItemRepository>();
-            services.AddScoped<IPedidoCheckoutRepository, PedidoStatusRepository>();
-            services.AddScoped<IPagamentoRepository, PagamentoRepository>();
+            services.AddScoped<IPedidoCheckoutRepository, PedidoCheckoutRepository>();
             services.AddScoped<DbContext, Context>();
 
             return services;

@@ -54,7 +54,7 @@ namespace FourSix.Controllers.Gateways.Repositories
 
         public new T Obter(Guid id)
         {
-            return _context.Set<T>().FirstOrDefault(f => f.Id == id);
+            return _context.Set<T>().Find(id);
         }
     }
 }

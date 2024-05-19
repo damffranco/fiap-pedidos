@@ -7,14 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Entities\ClienteAggregate\IClienteRepository.cs" />
     <Compile Remove="Entities\IGetRepository.cs" />
     <Compile Remove="Entities\ISetRepository.cs" />
-    <Compile Remove="Entities\PagamentoAggregate\IPagamentoRepository.cs" />
     <Compile Remove="Entities\PedidoAggregate\IPedidoCheckoutRepository.cs" />
     <Compile Remove="Entities\PedidoAggregate\IPedidoItemRepository.cs" />
     <Compile Remove="Entities\PedidoAggregate\IPedidoRepository.cs" />
-    <Compile Remove="Entities\ProdutoAggregate\IProdutoRepository.cs" />
   </ItemGroup>
 
 </Project>

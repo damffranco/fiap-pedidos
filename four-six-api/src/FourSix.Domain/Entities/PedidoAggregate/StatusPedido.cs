@@ -2,10 +2,10 @@
 {
     public enum EnumStatusPedido
     {
-        Recebido = 1,
-        Pago = 2,
-        EmPreparacao = 3,
-        Montagem = 4,
+        Criado = 1,
+        AguardandoPagamento = 2,
+        Pago = 3,
+        EmPreparacao = 4,
         Pronto = 5,
         Finalizado = 6,
         Cancelado = 7

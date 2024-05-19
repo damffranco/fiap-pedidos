@@ -15,13 +15,13 @@ namespace FourSix.Controllers.Gateways.Configurations
             }
 
             builder.ToTable("PedidoItem");
-            builder.HasKey(e => new { e.PedidoId, e.ItemPedidoId });
+            builder.HasKey(e => new { e.PedidoId, e.ProdutoId });
             builder.Property(b => b.PedidoId)
                 .IsRequired()
                 .ValueGeneratedNever()
                 .UsePropertyAccessMode(PropertyAccessMode.FieldDuringConstruction);
 
-            builder.Property(b => b.ItemPedidoId)
+            builder.Property(b => b.ProdutoId)
                 .IsRequired()
                 .ValueGeneratedNever()
                 .UsePropertyAccessMode(PropertyAccessMode.FieldDuringConstruction);
@@ -39,7 +39,6 @@ namespace FourSix.Controllers.Gateways.Configurations
                 .IsRequired(false)
                 .UsePropertyAccessMode(PropertyAccessMode.FieldDuringConstruction);
 
-            builder.HasOne(x => x.ItemPedido).WithMany().HasForeignKey(b => b.ItemPedidoId).OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
